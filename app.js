@@ -19,11 +19,19 @@ window.onload = moveHands
 
 // digital watch function
 function digitalWatch() {
-    with (new Date()) {
-        h = getHours() % 12; //getting the hour
-        m = getMinutes()
-        s = getSeconds() 
-        console.log(s)
+    // function to update the time every second
+    function watchUpdate() {
+        let now = new Date();
+        let h = now.getHours() % 12; //getting the current hour
+        let m = now.getMinutes() //getting the current minute
+        let s = now.getSeconds() //getting the current second
+        // concatenating 0
+        function addingZeroForH() {
+            return 
+        }
+        document.getElementById("watch").innerHTML = `${h < 10? '0' + h:h}:${m < 10? '0' + m:m}:${s < 10? '0' + s:s} `
     }
+    watchUpdate()
+    setInterval(watchUpdate,1000)
 }
 digitalWatch()
